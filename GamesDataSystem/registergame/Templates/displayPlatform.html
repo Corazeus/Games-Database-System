@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Platform List</title>
+    <link rel="stylesheet" href="{% static '/css/style.css'%}">
+</head>
+<body id="body">
+
+      <div class="topnav">
+        <a href="{% url 'registergame:index' %}">Home</a>
+        <a href="{% url 'registergame:register_game' %}">Register Game</a>
+        <a href="{% url 'registergame:add_platform' %}">Add New Platform</a>
+        <a class="active "href="{% url 'registergame:platform_list' %}">Platform List</a>
+        <a href="{% url 'registergame:add_developer' %}">Add New Developer</a>
+        <a href="{% url 'registergame:register_sales' %}">Register Sales</a>
+        <a href="{% url 'registergame:games_list' %}">Games List</a>
+      </div>
+
+    <h1> List of platforms </h1>
+    <center>
+    <div id="Platform">
+
+        {% for platform in platformlist %}
+        <table cellspacing="3" border="1" cellpadding="5px" style="text-align:center">
+            <th> Platform Name </th>
+            <th> Platform ID </th>
+            <th> Developer </th>
+
+            <tr>
+
+                <td> {{ platform.platform_name }} </td>
+                <td> {{ platform.platform_id }} </td>
+                <td> {{ platform.platform_developer }} </td>
+                <td> <a href="{% url 'registergame:edit_platform' platform.platform_id %}"><input class="buttonEdit glow-buttonEdit" type="button" value="Edit Developer"/></a></td>
+                <td> <a href="{% url 'registergame:delete_platform' platform.platform_id %}"><input class="buttonDelete glow-buttonDelete" type="button" value="Delete"/></a></td>
+
+            </tr>
+
+        </table>
+
+        <br>
+
+         {% endfor %}
+    </div>
+
+    </center>
+</body>
+</html>

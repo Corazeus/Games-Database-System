@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Games List</title>
+    <link rel="stylesheet" href="{% static '/css/list.css'%}">
+</head>
+<body>
+
+    <div class="topnav">
+        <a href="{% url 'registergame:index' %}">Home</a>
+        <a href="{% url 'registergame:register_game' %}">Register Game</a>
+        <a href="{% url 'registergame:add_platform' %}">Add New Platform</a>
+        <a href="{% url 'registergame:platform_list' %}">Platform List</a>
+        <a href="{% url 'registergame:add_developer' %}">Add New Developer</a>
+        <a href="{% url 'registergame:register_sales' %}">Register Sales</a>
+        <a class="active" href="{% url 'registergame:games_list' %}">Games List</a>
+    </div>
+
+
+    <center>
+        <br>
+    <h1> Games List </h1>
+
+        Sort By:
+        <a href="{% url 'registergame:games_list_AtoZ' %}"><input class="buttonSort glow-buttonSort" type="button" value="Name: Ascending"/></a>
+        <a href="{% url 'registergame:games_list_ZtoA' %}"><input class="buttonSort glow-buttonSort" type="button" value="Name: Descending"/></a>
+        <a href="{% url 'registergame:games_list_PC' %}"><input class="buttonSort glow-buttonSort" type="button" value="Platform: PC"/></a>
+        <a href="{% url 'registergame:games_list_XB' %}"><input class="buttonSort glow-buttonSort" type="button" value="Platform: Xbox"/></a>
+        <a href="{% url 'registergame:games_list_PS' %}"><input class="buttonSort glow-buttonSort" type="button" value="Platform: PlayStation"/></a>
+        <a href="{% url 'registergame:games_list_year' %}"><input class="buttonSort glow-buttonSort" type="button" value="Year Released"/></a>
+        <br><br>
+
+        {% for game in gameslist %}
+
+    <div class="game">
+
+            <table cellspacing="3" border="1" cellpadding="10px" width="80%" style="text-align:center">
+
+                <tr>
+                    <td colspan="8"><img src="{{game.game_img.url}}" alt="cover" width="250px" height="300px" class="thumbnail"/></td>
+                </tr>
+
+                <th> Game Name </th>
+                <th> Year Released </th>
+                <th> Genre </th>
+                <th> Rating </th>
+                <th> Platform </th>
+                <th> Developer </th>
+                <th colspan="2"> Manage </th>
+
+                <tr>
+
+                    <td> {{ game.name }} </td>
+                    <td> {{ game.year_released }} </td>
+                    <td> {{ game.genre_id }} </td>
+                    <td> {{ game.rating_id }} </td>
+                    <td> {{ game.platform_id }} </td>
+                    <td> {{ game.developer_id }} </td>
+                    <td> <a href="{% url 'registergame:update_game' game.game_id %}"><input class="buttonEdit glow-buttonEdit" type="button" value="Edit"/></a></td>
+                    <td> <a href="{% url 'registergame:delete_game' game.game_id %}"><input class="buttonDelete glow-buttonDelete" type="button" value="Delete"/></a></td>
+
+                </tr>
+
+            </table>
+            <br>
+
+    </div>
+
+        {% endfor %}
+
+    </center>
+
+</body>
+</html>

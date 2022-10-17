@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Games List</title>
+    <link rel="stylesheet" href="{% static '/css/list.css'%}">
+</head>
+<body id="body">
+
+    <div class="topnav">
+        <a href="{% url 'registergame:index' %}">Home</a>
+        <a href="{% url 'registergame:register_game' %}">Register Game</a>
+        <a href="{% url 'registergame:add_platform' %}">Add New Platform</a>
+        <a href="{% url 'registergame:platform_list' %}">Platform List</a>
+        <a href="{% url 'registergame:add_developer' %}">Add New Developer</a>
+        <a href="{% url 'registergame:register_sales' %}">Register Sales</a>
+        <a class="active" href="{% url 'registergame:games_list' %}">Games List</a>
+    </div>
+
+    <h1> Sales List </h1>
+    <center>
+    <div>
+
+        {% for s in sales %}
+
+            {{ s.sales_id }}
+
+        {% endfor %}
+
+
+    </div>
+
+    </center>
+</body>
+</html>

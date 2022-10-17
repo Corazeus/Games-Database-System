@@ -1,0 +1,114 @@
+body {
+	color: white;
+	background: #f5f5f5;
+	font-family: 'Courier New', sans-serif;
+	font-size: 14px;
+	background-image: url("img-bg2.jpg");
+}
+
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: white;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.thumbnail{
+    opacity: 1;
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+
+.thumbnail:hover{
+    opacity: 1;
+    width: 280px;
+    height: 350px;
+}
+
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+.buttonEdit{
+  text-decoration: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  background: #599e78;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.glow-buttonEdit:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+.buttonDelete{
+  text-decoration: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  background: #8f4747;
+  padding: 3px 5px;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.glow-buttonDelete:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}
+
+.buttonSort{
+  text-decoration: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  background: #5da1ba;
+  padding: 3px 5px;
+  border-radius: 4px;
+  font-weight: normal;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+}
+
+.glow-buttonSort:hover {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+}

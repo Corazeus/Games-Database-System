@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Edit Platform</title>
+   <link rel="stylesheet" href="{% static '/css/style.css'%}">
+</head>
+<body>
+
+      <div class="topnav">
+        <a href="{% url 'registergame:index' %}">Home</a>
+        <a href="{% url 'registergame:register_game' %}">Register Game</a>
+        <a href="{% url 'registergame:add_platform' %}">Add New Platform</a>
+        <a class="active "href="{% url 'registergame:platform_list' %}">Platform List</a>
+        <a href="{% url 'registergame:add_developer' %}">Add New Developer</a>
+        <a href="{% url 'registergame:register_sales' %}">Register Sales</a>
+        <a href="{% url 'registergame:games_list' %}">Games List</a>
+      </div>
+
+    <h1>Edit a Game Platform</h1>
+    <p>Edit a game console!</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label>Platform Developer</label><br>
+        {{form.platform_developer}}
+        <br><br>
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html>

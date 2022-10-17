@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Register Game</title>
+    <link rel="stylesheet" href="{% static '/css/style.css'%}">
+</head>
+
+<body>
+<div class="topnav">
+        <a href="{% url 'registergame:index' %}">Home</a>
+        <a class="active" href="{% url 'registergame:register_game' %}">Register Game</a>
+        <a href="{% url 'registergame:add_platform' %}">Add New Platform</a>
+        <a href="{% url 'registergame:platform_list' %}">Platform List</a>
+        <a href="{% url 'registergame:add_developer' %}">Add New Developer</a>
+        <a href="{% url 'registergame:register_sales' %}">Register Sales</a>
+        <a href="{% url 'registergame:games_list' %}">Games List</a>
+</div>
+
+    <h1>Register Game</h1>
+    <p>Add a new game to the database.</p>
+    <hr>
+    <form action="" method="post" enctype="multipart/form-data" style="padding-left: 10px;">
+        {% csrf_token %}
+        <label>Game Name:</label><br>
+        {{form.name}}
+        <br><br>
+        <label>Genre:</label><br>
+        {{form.genre_id}}
+        <br><br>
+        <label>Developer:</label><br>
+        {{form.developer_id}}
+        <br><br>
+        <label>Platform:</label><br>
+        {{form.platform_id}}
+        <br><br>
+        <label>ESRB Rating:</label><br>
+        {{form.rating_id}}
+        <br><br>
+        <label>Year Released:</label><br>
+        {{form.year_released}}
+        <br><br>
+        <label>Game Cover IMG:</label><br>
+        {{form.game_img}}
+        <br><br><br>
+
+    <input class="buttonSubmit glow-buttonSubmit" type="submit" value="Add Game">
+   </form>
+</body>
+</html>

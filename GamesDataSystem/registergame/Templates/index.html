@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Games Database System</title>
+    <link rel="stylesheet" href="{% static '/css/style.css'%}">
+</head>
+<body>
+
+    <div class="topnav">
+        <a class="active" href="{% url 'registergame:index' %}">Home</a>
+        <a href="{% url 'registergame:register_game' %}">Register Game</a>
+        <a href="{% url 'registergame:add_platform' %}">Add New Platform</a>
+        <a href="{% url 'registergame:platform_list' %}">Platform List</a>
+        <a href="{% url 'registergame:add_developer' %}">Add New Developer</a>
+        <a href="{% url 'registergame:register_sales' %}">Register Sales</a>
+        <a href="{% url 'registergame:games_list' %}">Games List</a>
+
+          <div class="dropdown">
+              <button class="dropbtn">Admin
+                  <i class="fa fa-caret-down"></i>
+              </button>
+
+              <div class="dropdown-content">
+                  <a href="http://127.0.0.1:8000/admin/" target="_blank">Admin Login</a>
+                  <a href="http://127.0.0.1:8000/admin/registergame/game/" target="_blank">Admin/Games</a>
+                  <a href="http://127.0.0.1:8000/admin/registergame/developer/" target="_blank">Admin/Developers</a>
+                  <a href="http://127.0.0.1:8000/admin/registergame/genre/" target="_blank">Admin/Genres</a>
+                  <a href="http://127.0.0.1:8000/admin/registergame/platform/" target="_blank">Admin/Platforms</a>
+                  <a href="http://127.0.0.1:8000/admin/registergame/rating/" target="_blank">Admin/Ratings</a>
+                  <a href="http://127.0.0.1:8000/admin/registergame/region/" target="_blank">Admin/Regions</a>
+                  <a href="http://127.0.0.1:8000/admin/registergame/sales/" target="_blank">Admin/Sales</a>
+              </div>
+
+          </div>
+
+    </div>
+
+        <img src="{% static '/img/GamesDataSysHeader.png' %}" style="float: center;" width="100%"/>
+    <center>
+
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+        <br><br>
+        <h2>Sales List</h2>
+        Sort By:
+        <a href="{% url 'registergame:sales_by_year_ASC' %}"><input class="buttonSort glow-buttonSort" type="button" value="Year: Ascending"/></a>
+        <a href="{% url 'registergame:sales_by_year_DESC' %}"><input class="buttonSort glow-buttonSort" type="button" value="Year: Descending"/></a>
+        <a href="{% url 'registergame:sales_ASC' %}"><input class="buttonSort glow-buttonSort" type="button" value="Sales: Ascending"/></a>
+        <a href="{% url 'registergame:sales_DESC' %}"><input class="buttonSort glow-buttonSort" type="button" value="Sales: Descending"/></a>
+
+        <div class="dropup">
+            <button class="dropbtn buttonSort glow-buttonSort">Region</button>
+            <div class="dropup-content">
+                <a href="{% url 'registergame:sales_asia' %}">Asia</a>
+                <a href="{% url 'registergame:sales_SA' %}">South America</a>
+                <a href="{% url 'registergame:sales_NA' %}">North America</a>
+                <a href="{% url 'registergame:sales_antarctica' %}">Antarctica</a>
+                <a href="{% url 'registergame:sales_europe' %}">Europe</a>
+                <a href="{% url 'registergame:sales_africa' %}">Africa</a>
+                <a href="{% url 'registergame:sales_oceania' %}">Oceania</a>
+
+            </div>
+        </div>
+        <br> <br>
+        <table border="2" cellspacing="2" width="70%">
+
+            <!-- <th colspan="8">Sales</th> -->
+            <th>Game</th>
+            <th>Sales</th>
+            <th>Region</th>
+            <th>Year</th>
+
+        {% for s in sales %}
+            <tr>
+                <td>{{ s.game_id }}</td>
+                <td>{{ s.sales }}</td>
+                <td>{{ s.region_id }}</td>
+                <td>{{ s.year }}</td>
+            </tr>
+        {% endfor %}
+            <!-- <th colspan="8"> -->
+        </table>
+        <br>
+    </center>
+    <br>
+</body>
+</html>
